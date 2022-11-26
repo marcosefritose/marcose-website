@@ -43,4 +43,5 @@
     {selectedTopics.includes(topic) ? 'text-white bg-'+color : 'text-'+color}
     {active ? 'cursor-pointer text-sm' : 'text-xs'}" 
     on:click={() => selectTopic(topic)}
+    on:keydown={() => selectTopic(topic)}
 >{topic}</span>
