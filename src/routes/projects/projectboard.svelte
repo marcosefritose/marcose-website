@@ -10,6 +10,7 @@
 
     let projects = [
         {
+            id: 1,
             title: 'Satellite Image Segmentation',
             image_path: '/images/satellite_segmentation.png',
             detail_path: '/projects/svm',
@@ -17,6 +18,7 @@
             descrition: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio maiores nulla eos optio sequi natus commodi pariatur accusantium saepe, consequuntur quibusdam hic, cumque iste, dolor doloremque blanditiis voluptas incidunt praesentium?'
         },
         {
+            id: 2,
             title: 'Spotify Vector Machince',
             image_path: '/images/svm.png',
             detail_path: '/projects/svm',
@@ -24,6 +26,7 @@
             descrition: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio maiores nulla eos optio sequi natus commodi pariatur accusantium saepe, consequuntur quibusdam hic, cumque iste, dolor doloremque blanditiis voluptas incidunt praesentium?'
         },
         {
+            id: 3,
             title: 'Personal Website',
             image_path: '/images/marcose.png',
             detail_path: '/projects/svm',
@@ -47,7 +50,7 @@
 
 <div class="py-3 flex flex-col gap-2">
 
-    {#each filteredProjects as project}
+    {#each filteredProjects as project (project.id)}
     <div class="flex flex-col md:flex-row p-3 gap-2 rounded-lg border-dashed border">
         <div class="flex-auto">
             <h3 class="text-xl font-semibold">{project.title}</h3>
