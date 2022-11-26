@@ -3,7 +3,7 @@ module.exports = {
   content: ['./src/**/*.{html,js,svelte,ts}'],
   theme: {
     fontFamily: {
-      sans: ['Source Code Pro', 'sans'],
+      sans: ['"Source Code Pro"', 'sans'],
     },
     extend: {
       colors: {
@@ -14,5 +14,10 @@ module.exports = {
       },
     },
   },
+  safelist: [
+    'bg-data', 'border-data', 'text-data',
+    'bg-web', 'border-web', 'text-web',
+    'bg-dark'
+  ],
   plugins: [],
 }

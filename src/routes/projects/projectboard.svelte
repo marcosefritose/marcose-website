@@ -1,22 +1,62 @@
 <script>
-    export let topics;
+    import { topics } from "./store";
+    import Topic from "./topic.svelte";
+    
+    let selectedTopics;
+    
+    topics.subscribe(value => {
+        selectedTopics = value;
+    });
+
+    let projects = [
+        {
+            title: 'Satellite Image Segmentation',
+            image: '/images/satellite_segmentation.png',
+            topics: ["Data Science", "University", "PyTorch", "Tensorflow", "Python"],
+            descrition: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio maiores nulla eos optio sequi natus commodi pariatur accusantium saepe, consequuntur quibusdam hic, cumque iste, dolor doloremque blanditiis voluptas incidunt praesentium?'
+        },
+        {
+            title: 'Spotify Vector Machince',
+            image: '/images/svm.png',
+            topics: ["Web", "University", "React", "Django", "Python", "Javascript", "CSS", "HTML"],
+            descrition: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio maiores nulla eos optio sequi natus commodi pariatur accusantium saepe, consequuntur quibusdam hic, cumque iste, dolor doloremque blanditiis voluptas incidunt praesentium?'
+        },
+        {
+            title: 'Personal Website',
+            image: '/images/marcose.png',
+            topics: ["Web", "SvelteKit", "Javascript", "CSS", "HTML"],
+            descrition: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio maiores nulla eos optio sequi natus commodi pariatur accusantium saepe, consequuntur quibusdam hic, cumque iste, dolor doloremque blanditiis voluptas incidunt praesentium?'
+        },
+    ]
+
+    $: filteredProjects = filterProjects(projects, selectedTopics)
+
+    function filterProjects(projects, selectedTopics) {
+        if(selectedTopics.length === 0) {
+            return projects;
+        } else {
+            return projects.filter(project => project.topics.some(t => selectedTopics.includes(t)));
+        }
+    }
+
+    
 </script>
 
-<div class="py-3">
+<div class="py-3 flex flex-col gap-2">
+
+    {#each filteredProjects as project}
     <div class="flex flex-col md:flex-row p-2 gap-2 rounded-lg border-dashed border">
-        <img class="w-full md:w-1/3 lg:w-1/4 object-contain" src="/images/satellite_segmentation.png" alt="Satellite Segmentation Screenshot">
+        <img class="w-full md:w-1/3 lg:w-1/4 object-contain" src="{project.image}" alt="Satellite Segmentation Screenshot">
         <div class="flex-auto">
-            <h3 class="text-xl font-medium">Satellite Image Segmentation</h3>
+            <h3 class="text-xl font-medium">{project.title}</h3>
             <div class="flex py-2 gap-1 flex-wrap">
-                <span class="px-3 py-1  text-sm border rounded-lg border-data 
-                    {topics.includes('Data Science') ? 'text-white bg-data' : 'text-data'}">
-                    Data Science
-                </span>
-                <span class="px-3 py-1  text-sm border rounded-lg border-dark text-dark">University</span>
-                <span class="px-3 py-1  text-sm border rounded-lg border-dark text-dark">PyTorch</span>
-                <span class="px-3 py-1  text-sm border rounded-lg border-dark text-dark">Tensorflow</span>
+                {#each project.topics as topic}
+                <Topic topic="{topic}" active={false}/>
+                {/each}
             </div>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio maiores nulla eos optio sequi natus commodi pariatur accusantium saepe, consequuntur quibusdam hic, cumque iste, dolor doloremque blanditiis voluptas incidunt praesentium?</p>
+            <p>{project.descrition}</p>
         </div>
-</div>
+    </div>
+    {/each}
+
 </div>

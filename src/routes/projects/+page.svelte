@@ -10,7 +10,7 @@
 
     <p class="py-2">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ipsum dolore nisi culpa a velit reiciendis eos praesentium est eaque, nesciunt officia exercitationem modi doloremque maiores magnam veritatis aperiam voluptatibus excepturi.</p>
     
-    <Filter bind:selectedTopics={selectedTopics}/>
+    <Filter />
 
-    <Projectboard topics={selectedTopics}/>
+    <Projectboard />
 </div>
