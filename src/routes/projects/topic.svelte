@@ -12,14 +12,14 @@
     });
 
     // Change color for predefined set of topics
-    switch(topic) {
-        case "Data Science":
-            color = 'data';
-            break;
-        case "Web":
-            color = 'web';
-            break;
-    }
+    // switch(topic) {
+    //     case "Data Science":
+    //         color = 'data';
+    //         break;
+    //     case "Web":
+    //         color = 'web';
+    //         break;
+    // }
 
     
     function selectTopic(topic) {
@@ -40,7 +40,7 @@
 
 <span 
     class="px-3 py-1 border rounded-lg border-{color} 
-    {selectedTopics.includes(topic) ? 'text-white bg-'+color : 'text-'+color}
+    {selectedTopics.includes(topic) ? 'text-white bg-opacity-70 bg-'+color : 'text-'+color}
     {active ? 'cursor-pointer text-sm' : 'text-xs'}" 
     on:click={() => selectTopic(topic)}
     on:keydown={() => selectTopic(topic)}

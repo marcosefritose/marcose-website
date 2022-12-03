@@ -2,7 +2,7 @@
 	import Topic from "./topic.svelte";
 </script>
 
-<div id="filter" class="relative flex flex-wrap gap-2 py-2">
+<div id="filter" class="md:w-5/6 xl:w-3/4 mx-auto max-w-6xl relative flex flex-wrap gap-2 py-2 my-3 ">
     <!-- Main Topics -->
     <div class="relative flex flex-wrap border border-dashed border-gray-300 p-2 gap-1 rounded-md">
         <span class="absolute text-xs -top-2 bg-light text-gray-400">Topics</span>
@@ -32,6 +32,7 @@
         <Topic topic="PyTorch"/>
         <Topic topic="Tensorflow"/>
         <Topic topic="Django"/>
+        <Topic topic="Flask"/>
         <Topic topic="Laravel"/>
         <Topic topic="React"/>
         <Topic topic="SvelteKit"/>
