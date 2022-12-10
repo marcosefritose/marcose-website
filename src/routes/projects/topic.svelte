@@ -10,21 +10,9 @@
     topics.subscribe(value => {
         selectedTopics = value;
     });
-
-    // Change color for predefined set of topics
-    // switch(topic) {
-    //     case "Data Science":
-    //         color = 'data';
-    //         break;
-    //     case "Web":
-    //         color = 'web';
-    //         break;
-    // }
-
     
     function selectTopic(topic) {
         if(!active) {
-            console.log('qweqwe');
             return null;
         }
 
@@ -39,7 +27,7 @@
 </script>
 
 <span 
-    class="px-3 py-1 border rounded-lg border-{color} 
+    class="px-3 py-1 border rounded-lg border-{color}
     {selectedTopics.includes(topic) ? 'text-white bg-opacity-70 bg-'+color : 'text-'+color}
     {active ? 'cursor-pointer text-sm' : 'text-xs'}" 
     on:click={() => selectTopic(topic)}

@@ -86,7 +86,7 @@
         <div class="flex-auto ml-3">
             <div class="flex gap-2">
                 {#each project.topics as topic}
-                    {#if topic === 'Data Science' || topic === 'Web'}
+                    {#if topic === 'Data Science' || topic === 'Web' || topic === 'University'}
                         <Badge topic="{topic}"/>
                     {/if}
                 {/each}
@@ -94,7 +94,7 @@
             <h3 class="text-xl font-semibold mt-4">{project.title}</h3>
             <div class="flex py-2 gap-1 flex-wrap">
                 {#each project.topics as topic}
-                    {#if topic !== 'Data Science' && topic !== 'Web'}
+                    {#if topic !== 'Data Science' && topic !== 'Web' && topic !== 'University'}
                         <Topic topic="{topic}" active={false}/>
                     {/if}
                 {/each}
