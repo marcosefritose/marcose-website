@@ -1,5 +1,5 @@
 <script>
-    import { topics } from "./store";
+    import { topics, projects } from "./store.js";
     import Topic from "./topic.svelte";
     import Badge from "./badge.svelte";
     
@@ -10,57 +10,6 @@
     });
 
     let foldOut = false;
-
-    let projects = [
-        {
-            id: 1,
-            title: 'Satellite Image Segmentation',
-            image_path: '/images/satellite_segmentation.png',
-            detail_path: '/projects/svm',
-            topics: ["Data Science", "University", "PyTorch", "Tensorflow", "Python"],
-            descrition: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio maiores nulla eos optio sequi natus commodi pariatur accusantium saepe, consequuntur quibusdam hic, cumque iste, dolor doloremque blanditiis voluptas incidunt praesentium?'
-        },
-        {
-            id: 2,
-            title: 'Spotify Vector Machince',
-            image_path: '/images/svm.png',
-            detail_path: '/projects/svm',
-            topics: ["Data Science", "Web", "University", "React", "Django", "Python", "Javascript", "CSS", "HTML"],
-            descrition: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio maiores nulla eos optio sequi natus commodi pariatur accusantium saepe, consequuntur quibusdam hic, cumque iste, dolor doloremque blanditiis voluptas incidunt praesentium?'
-        },
-        {
-            id: 3,
-            title: 'Karten aus der Geschichte',
-            image_path: '/images/kag.png',
-            detail_path: '/projects/kag',
-            topics: ["Data Science", "Web", "SvelteKit", "Flask", "Python", "Javascript", "CSS", "HTML"],
-            descrition: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio maiores nulla eos optio sequi natus commodi pariatur accusantium saepe, consequuntur quibusdam hic, cumque iste, dolor doloremque blanditiis voluptas incidunt praesentium?'
-        },
-        {
-            id: 4,
-            title: 'Personal Website',
-            image_path: '/images/marcose.png',
-            detail_path: '/projects/svm',
-            topics: ["Web", "SvelteKit", "Javascript", "CSS", "HTML"],
-            descrition: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio maiores nulla eos optio sequi natus commodi pariatur accusantium saepe, consequuntur quibusdam hic, cumque iste, dolor doloremque blanditiis voluptas incidunt praesentium?'
-        },
-        {
-            id: 5,
-            title: 'Personal Website',
-            image_path: '/images/marcose.png',
-            detail_path: '/projects/svm',
-            topics: ["Web", "SvelteKit", "Javascript", "CSS", "HTML"],
-            descrition: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio maiores nulla eos optio sequi natus commodi pariatur accusantium saepe, consequuntur quibusdam hic, cumque iste, dolor doloremque blanditiis voluptas incidunt praesentium?'
-        },
-        {
-            id: 6,
-            title: 'Personal Website',
-            image_path: '/images/marcose.png',
-            detail_path: '/projects/svm',
-            topics: ["Web", "SvelteKit", "Javascript", "CSS", "HTML"],
-            descrition: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio maiores nulla eos optio sequi natus commodi pariatur accusantium saepe, consequuntur quibusdam hic, cumque iste, dolor doloremque blanditiis voluptas incidunt praesentium?'
-        },
-    ]
 
     $: filteredProjects = filterProjects(projects, selectedTopics)
 
