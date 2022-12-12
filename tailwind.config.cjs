@@ -30,7 +30,9 @@ module.exports = {
   safelist: [
     'bg-data', 'border-data', 'text-data',
     'bg-web', 'border-web', 'text-web',
-    'bg-dark', 'bg-gray-700'
+    'bg-dark', 'border-dark', 'bg-gray-700'
   ],
-  plugins: [],
+  plugins: [
+    require('tailwind-scrollbar'),
+  ], 
 }
