@@ -21,14 +21,16 @@
 		: 'overflow-x-scroll scrollbar scrollbar-thumb-gray-200 scrollbar-thin'} mt-3 gap-2 py-2 "
 >
 	<!-- Main Topics -->
-	<div class="relative flex gap-1 rounded-md border-gray-300 p-2 mt-1">
+	<div class="relative flex {showAllTopics
+		? 'flex-wrap' : ''} gap-1 rounded-md border-gray-300 p-2 mt-1">
 		<span class="absolute -top-3 left-3 bg-light text-xs text-gray-400">Topics</span>
 		<Topic topic="Data Science" color="data" />
 		<Topic topic="Web" color="web" />
 		<Topic topic="University" color="gray-700" />
 	</div>
 	<!-- Languages -->
-	<div class="relative flex gap-1 rounded-md border-gray-300 p-2 mt-1">
+	<div class="relative flex {showAllTopics
+		? 'flex-wrap' : ''} gap-1 rounded-md border-gray-300 p-2 mt-1">
 		<span class="absolute -top-3 left-3 bg-light text-xs text-gray-400">Languages</span>
 		<Topic topic="Python" />
 		<Topic topic="Javascript" />
@@ -42,7 +44,8 @@
 		{/if}
 	</div>
 	<!-- Technology / Software -->
-	<div class="relative flex gap-1 rounded-md border-gray-300 p-2 mt-1">
+	<div class="relative flex {showAllTopics
+		? 'flex-wrap' : ''} gap-1 rounded-md border-gray-300 p-2 mt-1">
 		<span class="absolute -top-3 left-3 bg-light text-xs text-gray-400">Technology/Software</span>
 		<Topic topic="Docker" />
 		<Topic topic="Apache Airflow" />
@@ -50,14 +53,15 @@
 		<Topic topic="Figma" />
 	</div>
 	<!-- Frameworks -->
-	<div class="relative flex gap-1 rounded-md border-gray-300 p-2 mt-1">
+	<div class="relative flex {showAllTopics
+		? 'flex-wrap' : ''} gap-1 rounded-md border-gray-300 p-2 mt-1">
 		<span class="absolute -top-3 left-3 bg-light text-xs text-gray-400">Frameworks</span>
-		<Topic topic="PyTorch" />
 		<Topic topic="Tensorflow" />
-		<Topic topic="Django" />
+		<Topic topic="PyTorch" />
 		<Topic topic="Flask" />
 		<Topic topic="SvelteKit" />
         {#if extendFrameworks}
+			<Topic topic="Django" />
             <Topic topic="Laravel" />
             <Topic topic="TailwindCSS" />
             <Topic topic="React" />
