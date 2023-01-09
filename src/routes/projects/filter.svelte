@@ -45,6 +45,7 @@
 	<div class="relative flex gap-1 rounded-md border-gray-300 p-2 mt-1">
 		<span class="absolute -top-3 left-3 bg-light text-xs text-gray-400">Technology/Software</span>
 		<Topic topic="Docker" />
+		<Topic topic="Apache Airflow" />
 		<Topic topic="PowerBI" />
 		<Topic topic="Figma" />
 	</div>
@@ -67,7 +68,7 @@
 	</div>
 </div>
 <div class="my-3 flex w-full justify-center">
-	<button on:click={switchTopicDisplayMode} class="text-sm"
+	<button on:click={switchTopicDisplayMode} class="text-sm underline underline-offset-2"
 		>Show {showAllTopics ? 'less' : 'all'}</button
 	>
 </div>

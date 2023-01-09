@@ -1,3 +1,4 @@
-<a href="/projects">Back</a>
-
-<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum quasi nam voluptatibus eos modi optio commodi aut quis. Neque soluta quia molestiae alias at est enim culpa minus totam itaque.</p>
+<div class="text-center h-full mt-48">
+    <p>Coming soon.</p>
+    <a href="/projects" class="underline underline-offset-2">Back</a>
+</div>
