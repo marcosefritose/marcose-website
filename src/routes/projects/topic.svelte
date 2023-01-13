@@ -27,7 +27,7 @@
 </script>
 
 <span 
-    class="px-3 py-1 border rounded-xl whitespace-nowrap border-{color}
+    class="inline-block px-3 py-1 border rounded-xl whitespace-nowrap border-{color}
     {selectedTopics.includes(topic) ? 'text-white bg-opacity-70 bg-'+color : 'text-'+color}
     {active ? 'cursor-pointer text-sm' : 'text-xs'}" 
     on:click={() => selectTopic(topic)}
