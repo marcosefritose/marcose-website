@@ -1,8 +1,8 @@
 <script>
     let hide = true
-    let snippet_1 = 'hegm'
-    let snippet_2 = 'ocram@ekr'
-    let snippet_3 = 'ue.es'
+    let snippet_1 = 'heg.m'
+    let snippet_2 = 'ilno-t@79ekr'
+    let snippet_3 = 'ed.en'
 
     function reveal() {
         hide = false
@@ -28,7 +28,7 @@
             </p>
             <p class="my-2">
                 <span class="font-semibold">Github</span>
-                <a href="https://github.com/marcosefritose/" target="_blank" rel="noopener noreferrer">/marcosefritose</a>
+                <a href="https://github.com/marcosefritose/" target="_blank" rel="noopener noreferrer">marcosefritose</a>
             </p>
             <p class="my-2">
                 <span class="font-semibold">Discord:</span>
