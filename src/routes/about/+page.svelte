@@ -11,13 +11,14 @@
 </script>
 
 <div class="relative">
-    <img src="/images/marathon_marc_raw.jpg" class="border-0 w-full max-w-7xl mx-auto" alt="">
+    <img src="/images/marathon_marc_raw.jpg" class="border-0 w-full min-h-screen max-w-7xl mx-auto object-cover" alt="">
     <div class="absolute top-48 w-full">
         <div id="contactbox" class="bg-white bg-opacity-80 rounded-lg w-fit mx-auto py-5 px-10">
         <h1 class="text-xl font-bold text-center mb-3">Contact</h1>
 
             <p class="my-2">
                 <span class="reverse {hide ? 'hidden' : ''}">{snippet_3}<span class="hidden">@bot</span>{snippet_2}<span class="hidden">@stop</span>{snippet_1}</span>
+                <!-- svelte-ignore a11y-click-events-have-key-events -->
                 <span class="reverse {hide ? '' : 'hidden'} cursor-pointer" on:click={reveal}>em wohs</span>
                 <span class="reverse font-semibold">:liaM</span> 
             </p>
