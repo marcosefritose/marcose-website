@@ -8,7 +8,7 @@ export const projects = [
         title: 'Karten aus der Geschichte',
         image_path: '/images/kag_board.png',
         detail_path: '/projects/kag',
-        topics: ["Data Science", "Web", "Apache Airflow", "SvelteKit", "Flask", "Python", "Javascript", "CSS", "HTML"],
+        topics: ["Data Science", "Web", "Apache Airflow", "SvelteKit", "d3", "Flask", "Python", "Javascript", "CSS", "HTML"],
         descrition: 'One of my favorite german podacasts called “Geschichten aus der Geschichte” tells a new story from history every week. I built a pipeline that reads their podcast feed, cleans the available data, transcribes the podcast and extracts all mentioned locations. An interactive map lets the user discover the places where history took place and how the map changes throughout the centuries.'
     },
     {

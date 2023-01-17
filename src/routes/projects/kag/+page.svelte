@@ -7,7 +7,7 @@
         <!-- Project Card -->
         <div class="bg-slate-200 rounded-md p-4 md:max-w-xs">
             <div class="max-w-sm mx-auto md:max-w-none">
-                <img src="/images/GAG_logo_full.png" class="object-contain px-4">
+                <img src="/images/GAG_logo_full.png" class="object-contain px-4" alt="Geschichten aus der Geschichte Logo">
             </div>
 
             <div id="links" class="py-2">
@@ -33,8 +33,9 @@
                 <div class="pt-1 flex flex-wrap gap-1">
                     <Topic topic="Apache Airflow" active={false}/>
                     <Topic topic="SvelteKit" active={false}/>
-                    <Topic topic="Flask" active={false}/>
                     <Topic topic="Docker" active={false}/>
+                    <Topic topic="Flask" active={false}/>
+                    <Topic topic="d3" active={false}/>
                     <Topic topic="PostgreSQL" active={false}/>
                 </div>
             </div>
@@ -63,7 +64,7 @@
                 As a somewhat visual thinker, the idea of a map-like and interactive visualization of this "patchwork" had been in the back of my mind for a long time. When I started looking for projects where I could try both implementing and running a data pipeline with Apache Airflow and a more complex, but most importantly fun and inspiring Sveltekit app, everything fell into place.
             </p>
             <p class="py-2">
-                In the next sections I will first talk about the insteresting features that are available for users on the website. After that I will go into detail about how the system is designed and how I got the relevant data and made it available.
+                In the next sections I will first talk about the features that are available for users on the website. After that I will go a bit into detail about how the system is designed, what data and technologies were used and what experiences I have had with them.
             </p>
         </div>
     </div>
@@ -72,14 +73,11 @@
     <div class="mb-6">
         <h2 class="text-2xl mb-2 font-semibold">Website</h2>
 
-        <p>
+        <p class="py-2">
             The main element of the website is the interactive world map on which every location that was mentioned in one of the podcast episodes is marked on. It allows you to zoom in and out, drag the map to different places and hover over the markers to see the location and all the episodes, that specific location was mentioned in. 
         </p>
-        <p>
-            With the episode list is works the other way around: Pick a single episode and see all the locations that were talked about.
-        </p>
-        <p>
-            On selecting an episode the map automatically zooms in and highlight the associated locations and thus only shows the relevant part of the map.
+        <p class="py-2">
+            With the episode list is works the other way around: Pick a single episode and see all the locations that were talked about. On selecting an episode the map automatically zooms in and highlight the associated locations and thus only shows the relevant part of the map.
         </p>
 
         <img src="/images/kag.png" class="w-full mx-auto m-4" alt="Screenshot Karten aus der Geschichte">
@@ -89,10 +87,10 @@
     <div class="mb-6">
         <h2 class="text-2xl mb-2 font-semibold">Architecture</h2>
 
-        <p>
+        <p class="py-2">
             Like mentioned before this is mostly a fun side project, which enabled me to consolidate and put my data engineering skills to good use, as well channeling my creative energy and furhter improving on my frontend web development skills. 
         </p>
-        <p>
+        <p class="py-2">
             The rough technical architecture can be seen on the graph below. I will talk a bit about each part and my takeaways working with them in the following sections
         </p>
         
@@ -103,10 +101,10 @@
     <div class="mb-6">
         <h2 class="text-2xl mb-2 font-semibold">Apache Airflow</h2>
 
-        <p>
-            The Data Pipeline is run everyday and consists of the following main steps, which are also visualized in the architecture overview.
+        <p class="py-2">
+            The data pipeline is executed daily and consists of the following main steps, which are also visualized in the architecture overview.
         </p>
-
+        
         <ol class="list-decimal list-inside my-2">
             <li><span class="underline my-1">Database Setup:</span> On the initial run of the pipeline this step creates the required database and tables, which will store the gathered data and serve the webserver lateron.</li>
             <li><span class="underline my-1">Scrape Data:</span> Checks the Podcast Feed for new episodes and downloads all relevant information to the database.</li>
@@ -114,14 +112,21 @@
             <li><span class="underline my-1">Entity Extraction:</span> Here I make use of NLP techniques to extract the locations mentioned from the available texts.</li>
             <li><span class="underline my-1">Data Enrichment:</span> Finally I use an external API Service to receive coordinates for the location name, which can be drawn onto the map.</li>
         </ol>
+        
+        <p class="py-2">
+            The features Apache Airflow brings out of the box are amazing, but lead to it not being as lightweight as I hoped it to be. Additionally the main role of as a simple "job scheduler" was not clear to me in the beginning and I probably implemented more logic inside of Airflow Tasks than I should have. The setup using the available Docker Images was easily done and the provided UI and Monitoring capabilities intuitive to use. Working with and deploying a "pythonic" Datapipeline was enjoyable after previously working with Azure Data Factory and Azure Machine Learning, which focused on a code-free implementation of the Pipeline. I will most likely continue using Airflwo in following data driven projects if suitable.
+        </p>
     </div>
 
     <!-- SvelteKit Text -->
     <div class="mb-6">
         <h2 class="text-2xl mb-2 font-semibold">SvelteKit</h2>
 
-        <p>
-            tbd
+        <p class="py-2">
+            The website itself was implemented with Svelte and uses the d3 package for map visualization and interactions. The maps are loaded as a .geojson file, on which previously collected coordinates can be mapped and displayed.
+        </p>
+        <p class="py-2">
+            I chose SvelteKit after working with Vue and React in the past, and will most likely continue to use it for the foreseeable future as it has proven to be very developer friendly, well documented, flexible, and powerful. Given the project structure of SvelteKit in combination with TailwindCSS, the project seemed well organized and clean at all times and was a pleasure to work on.
         </p>
     </div>
 
@@ -129,8 +134,8 @@
     <div class="mb-6">
         <h2 class="text-2xl mb-2 font-semibold">Flask</h2>
 
-        <p>
-            tbd
+        <p class="py-2">
+            The Python-based Flask server serves as a really straightforward API for the SvelteKit application and was quickly set up in a single file. I was pleasantly surprised by the simplicity and low overhead, having previously worked with the django framework.
         </p>
     </div>
 
@@ -138,8 +143,8 @@
     <div class="mb-6">
         <h2 class="text-2xl mb-2 font-semibold">Docker</h2>
 
-        <p>
-            tbd
+        <p class="py-2">
+            I went for the extra mile at the beginning of development and "dockerized" the entire project by creating custom Docker Images for each component. Currently I use Docker Compose for both local development and hosting on a linux webserver. This ensures cloud portability and makes me independent of hosting and developing environments. Deploying a Kubernetes Cluster, which allows for easy scaling of the user-facing components, can easily be done when needed based on the already existing images.
         </p>
     </div>
 
