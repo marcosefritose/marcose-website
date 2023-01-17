@@ -1,5 +1,8 @@
 <script>
     export let extended;
+    export let showAllTopics;
+
+    $: if(showAllTopics) extended = true
 </script>
 
 <span

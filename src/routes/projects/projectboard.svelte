@@ -20,12 +20,6 @@
             return projects.filter(project => project.topics.some(t => selectedTopics.includes(t)));
         }
     }
-
-    function toggleFoldOut() {
-        foldOut = !foldOut;
-    }
-
-    
     </script>
 
 <div class="py-5 flex flex-col gap-4 bg-light-blue">

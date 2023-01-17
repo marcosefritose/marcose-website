@@ -38,9 +38,9 @@
 		{#if extendLanguages}
 			<Topic topic="HTML" />
 			<Topic topic="CSS" />
-            <ExtendButton bind:extended={extendLanguages} />
+            <ExtendButton bind:extended={extendLanguages} {showAllTopics} />
 		{:else}
-            <ExtendButton bind:extended={extendLanguages} />
+            <ExtendButton bind:extended={extendLanguages} {showAllTopics} />
 		{/if}
 	</div>
 	<!-- Technology / Software -->
@@ -48,6 +48,7 @@
 		? 'flex-wrap' : ''} gap-1 rounded-md border-gray-300 p-2 mt-1">
 		<span class="absolute -top-3 left-3 bg-light text-xs text-gray-400">Technology/Software</span>
 		<Topic topic="Docker" />
+		<Topic topic="Jupyter" />
 		<Topic topic="Apache Airflow" />
 		<Topic topic="PowerBI" />
 		<Topic topic="Figma" />
@@ -56,18 +57,19 @@
 	<div class="relative flex {showAllTopics
 		? 'flex-wrap' : ''} gap-1 rounded-md border-gray-300 p-2 mt-1">
 		<span class="absolute -top-3 left-3 bg-light text-xs text-gray-400">Frameworks</span>
-		<Topic topic="Tensorflow" />
 		<Topic topic="PyTorch" />
+		<Topic topic="Tensorflow" />
 		<Topic topic="Flask" />
 		<Topic topic="SvelteKit" />
+		<Topic topic="d3" />
         {#if extendFrameworks}
 			<Topic topic="Django" />
             <Topic topic="Laravel" />
-            <Topic topic="TailwindCSS" />
+            <Topic topic="Tailwind" />
             <Topic topic="React" />
-            <ExtendButton bind:extended={extendFrameworks} />
+            <ExtendButton bind:extended={extendFrameworks} {showAllTopics} />
 		{:else}
-            <ExtendButton bind:extended={extendFrameworks} />
+            <ExtendButton bind:extended={extendFrameworks} {showAllTopics} />
 		{/if}
 	</div>
 </div>
