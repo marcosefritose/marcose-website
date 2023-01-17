@@ -2,7 +2,7 @@
     import Topic from "../topic.svelte";
 </script>
 
-<div class="mt-28 max-w-7xl mx-auto px-4">
+<div class="mt-28 max-w-6xl mx-auto px-4">
     <div class="flex flex-col items-center md:items-start md:flex-row gap-8 w-full mb-6">
         <!-- Project Card -->
         <div class="bg-slate-200 rounded-md p-4 md:max-w-xs">
@@ -57,13 +57,13 @@
             <h1 class="text-4xl mb-5 font-semibold">Karten aus der Geschichte</h1>
 
             <p class="py-2">
-                My aboslute favorite history podcast “Geschichten aus der Geschichte” (stories out of history) tells a story out of history every week. The creators of the podcasts many time refered to the concept of the “patchwork of history” and their goal to link stories of various times and places together to get a better understanding of history as a whole. 
+                My all-time favorite history podcast, "Geschichten aus der Geschichte", tells a story from history each week. The creators of the podcast often refer to the concept of the "patchwork quilt of history" and their goal of weaving together stories from different times and places to gain a better understanding of historical events and the context in which they occurred. 
             </p>
             <p class="py-2">
-                As a somewhat visual thinker the idea of map-like visualization of this “patchwork” was in the back of my head for a long time. When I was looking for projects where I could try out implementing and deploying a Data Pipeline in Apache Airflow as well as try a more complex, but mostly fun and inspiring Sveltekit App everything clicked together and you are reading about the result right here.
+                As a somewhat visual thinker, the idea of a map-like and interactive visualization of this "patchwork" had been in the back of my mind for a long time. When I started looking for projects where I could try both implementing and running a data pipeline with Apache Airflow and a more complex, but most importantly fun and inspiring Sveltekit app, everything fell into place.
             </p>
             <p class="py-2">
-                In the next sections I will first talk about the insteresting features that are available for users on the website. After that I will talk about how I got the relevant data and made it available.
+                In the next sections I will first talk about the insteresting features that are available for users on the website. After that I will go into detail about how the system is designed and how I got the relevant data and made it available.
             </p>
         </div>
     </div>
@@ -73,7 +73,7 @@
         <h2 class="text-2xl mb-2 font-semibold">Website</h2>
 
         <p>
-            The main element of the website is the interactive world map on which every location that was mentioned in one of the podcast episodes. It allows you to zoom in and out, drag the map to different places and hover over the markers to see the location and all the episodes, the location was mentioned in. 
+            The main element of the website is the interactive world map on which every location that was mentioned in one of the podcast episodes is marked on. It allows you to zoom in and out, drag the map to different places and hover over the markers to see the location and all the episodes, that specific location was mentioned in. 
         </p>
         <p>
             With the episode list is works the other way around: Pick a single episode and see all the locations that were talked about.
@@ -104,8 +104,16 @@
         <h2 class="text-2xl mb-2 font-semibold">Apache Airflow</h2>
 
         <p>
-            Like mentioned before this is mostly a fun side project, which enabled me to consolidate and put my data engineering skills to good use, as well channeling my creative energy and furhter improving on my frontend web development skills. 
+            The Data Pipeline is run everyday and consists of the following main steps, which are also visualized in the architecture overview.
         </p>
+
+        <ol class="list-decimal list-inside my-2">
+            <li><span class="underline my-1">Database Setup:</span> On the initial run of the pipeline this step creates the required database and tables, which will store the gathered data and serve the webserver lateron.</li>
+            <li><span class="underline my-1">Scrape Data:</span> Checks the Podcast Feed for new episodes and downloads all relevant information to the database.</li>
+            <li><span class="underline my-1">Cleaning: </span>This step removes unwanted formatting from the summary text, removes advertisment and extracts the Episode-ID from the title.</li>
+            <li><span class="underline my-1">Entity Extraction:</span> Here I make use of NLP techniques to extract the locations mentioned from the available texts.</li>
+            <li><span class="underline my-1">Data Enrichment:</span> Finally I use an external API Service to receive coordinates for the location name, which can be drawn onto the map.</li>
+        </ol>
     </div>
 
     <!-- SvelteKit Text -->
@@ -113,7 +121,7 @@
         <h2 class="text-2xl mb-2 font-semibold">SvelteKit</h2>
 
         <p>
-            Like mentioned before this is mostly a fun side project, which enabled me to consolidate and put my data engineering skills to good use, as well channeling my creative energy and furhter improving on my frontend web development skills. 
+            tbd
         </p>
     </div>
 
@@ -122,7 +130,7 @@
         <h2 class="text-2xl mb-2 font-semibold">Flask</h2>
 
         <p>
-            Like mentioned before this is mostly a fun side project, which enabled me to consolidate and put my data engineering skills to good use, as well channeling my creative energy and furhter improving on my frontend web development skills. 
+            tbd
         </p>
     </div>
 
@@ -131,7 +139,7 @@
         <h2 class="text-2xl mb-2 font-semibold">Docker</h2>
 
         <p>
-            Like mentioned before this is mostly a fun side project, which enabled me to consolidate and put my data engineering skills to good use, as well channeling my creative energy and furhter improving on my frontend web development skills. 
+            tbd
         </p>
     </div>
 
