@@ -26,7 +26,7 @@
 
     {#each filteredProjects as project (project.id)}
     <div class="flex flex-col md:flex-row px-3 pb-3 gap-2 rounded-lg md:w-5/6 xl:w-3/4 mx-auto max-w-6xl bg-light">
-        <div class="flex-auto ml-3">
+        <div class="ml-3 w-full md:w-2/3 lg:w-3/4">
             <div class="flex gap-2">
                 {#each project.topics as topic}
                     {#if topic === 'Data Science' || topic === 'Web' || topic === 'University'}
