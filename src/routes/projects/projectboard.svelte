@@ -1,55 +1,60 @@
 <script>
-    import { topics, projects } from "./store.js";
-    import Topic from "./topic.svelte";
-    import Badge from "./badge.svelte";
-    
-    let selectedTopics;
-    
-    topics.subscribe(value => {
-        selectedTopics = value;
-    });
+	import { topics, projects } from './store.js';
+	import Topic from './topic.svelte';
+	import Badge from './badge.svelte';
 
-    let foldOut = false;
+	let selectedTopics;
 
-    $: filteredProjects = filterProjects(projects, selectedTopics)
+	topics.subscribe((value) => {
+		selectedTopics = value;
+	});
 
-    function filterProjects(projects, selectedTopics) {
-        if(selectedTopics.length === 0) {
-            return projects;
-        } else {
-            return projects.filter(project => project.topics.some(t => selectedTopics.includes(t)));
-        }
-    }
-    </script>
+	let foldOut = false;
 
-<div class="py-5 flex flex-col gap-4 bg-light-blue">
+	$: filteredProjects = filterProjects(projects, selectedTopics);
 
-    {#each filteredProjects as project (project.id)}
-    <div class="flex flex-col md:flex-row px-3 pb-3 gap-2 rounded-lg md:w-5/6 xl:w-3/4 mx-auto max-w-6xl bg-light">
-        <div class="ml-3 w-full md:w-2/3 lg:w-3/4">
-            <div class="flex gap-2">
-                {#each project.topics as topic}
-                    {#if topic === 'Data Science' || topic === 'Web' || topic === 'University'}
-                        <Badge topic="{topic}"/>
-                    {/if}
-                {/each}
-            </div>
-            <h3 class="text-xl font-semibold mt-4">{project.title}</h3>
-            <div class="flex py-2 gap-1 flex-wrap">
-                {#each project.topics as topic}
-                    {#if topic !== 'Data Science' && topic !== 'Web' && topic !== 'University'}
-                        <Topic topic="{topic}" active={false}/>
-                    {/if}
-                {/each}
-            </div>
-            <p class="font-sans my-2">{project.descrition}</p>
-            <a class="underline inline-block" href="{project.detail_path}">More Info</a>
-        </div>
-        <img class="w-full md:w-1/3 lg:w-1/4 object-contain bg-light-blue p-3 mt-3" src="{project.image_path}" alt="Satellite Segmentation Screenshot">
-    </div>
-    {/each}
-    
-    <!-- <div class="w-full border border-b-2 border-gray-700 my-3"></div>
+	function filterProjects(projects, selectedTopics) {
+		if (selectedTopics.length === 0) {
+			return projects;
+		} else {
+			return projects.filter((project) => project.topics.some((t) => selectedTopics.includes(t)));
+		}
+	}
+</script>
+
+<div class="flex flex-col gap-4 bg-light-blue py-5">
+	{#each filteredProjects as project (project.id)}
+		<div
+			class="mx-auto flex max-w-6xl flex-col gap-2 rounded-lg bg-light px-3 pb-3 md:w-5/6 md:flex-row xl:w-3/4"
+		>
+			<div class="ml-3 w-full md:w-2/3 lg:w-3/4">
+				<div class="flex gap-2">
+					{#each project.topics as topic}
+						{#if topic === 'Data Science' || topic === 'Web' || topic === 'University'}
+							<Badge {topic} />
+						{/if}
+					{/each}
+				</div>
+				<h3 class="mt-4 text-xl font-semibold">{project.title}</h3>
+				<div class="flex flex-wrap gap-1 py-2">
+					{#each project.topics as topic}
+						{#if topic !== 'Data Science' && topic !== 'Web' && topic !== 'University'}
+							<Topic {topic} active={false} />
+						{/if}
+					{/each}
+				</div>
+				<p class="my-2 font-sans">{project.descrition}</p>
+				<a class="inline-block underline" href={project.detail_path}>More Info</a>
+			</div>
+			<img
+				class="mt-3 w-full bg-light-blue object-contain p-3 md:w-1/3 lg:w-1/4"
+				src={project.image_path}
+				alt="Satellite Segmentation Screenshot"
+			/>
+		</div>
+	{/each}
+
+	<!-- <div class="w-full border border-b-2 border-gray-700 my-3"></div>
     
         <div class="rounded-lg border-dashed border mb-10">
             <div class="flex flex-col md:flex-row p-3 gap-2 ">
