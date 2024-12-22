@@ -9,7 +9,17 @@ export const projects = [
         image_path: '/images/kag_board.png',
         detail_path: '/projects/kag',
         topics: ["Data Science", "Web", "Apache Airflow", "SvelteKit", "Docker", "d3", "Tailwind", "Flask", "Python", "Javascript", "CSS", "HTML"],
-        descrition: 'One of my favorite german podacasts called “Geschichten aus der Geschichte” tells a new story from history every week. I built a pipeline that reads their podcast feed, cleans the available data, transcribes the podcast and extracts all mentioned locations. An interactive map lets the user discover the places where history took place and how the map changes throughout the centuries.'
+        descrition: 'One of my favorite german podacasts called “Geschichten aus der Geschichte” tells a new story from history every week. I built a pipeline that reads their podcast feed, cleans the available data, transcribes the podcast and extracts all mentioned locations. An interactive map lets the user discover the places where history took place and how the map changes throughout the centuries.',
+        links: [
+            {
+                title: 'More Info',
+                url: '/projects/kag'
+            },
+            {
+                title: 'Github',
+                url: '/projects/kag'
+            }
+        ]
     },
     {
         id: 2,

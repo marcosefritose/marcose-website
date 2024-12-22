@@ -44,7 +44,15 @@
 					{/each}
 				</div>
 				<p class="my-2 font-sans">{project.descrition}</p>
-				<a class="inline-block underline" href={project.detail_path}>More Info</a>
+				<!-- <a class="inline-block underline" href={project.detail_path}>More Info</a> -->
+
+				{#if project.links}
+					<div class="div flex flex-wrap gap-3 py-2">
+						{#each project.links as link}
+							<a class="inline-block underline" href={link.url}>{link.title}</a>
+						{/each}
+					</div>
+				{/if}
 			</div>
 			<img
 				class="mt-3 w-full bg-light-blue object-contain p-3 md:w-1/3 lg:w-1/4"
