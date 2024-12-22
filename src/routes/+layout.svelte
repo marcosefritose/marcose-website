@@ -8,7 +8,7 @@
 </script>
 
 <div class="w-screen bg-light font-mono text-dark">
-	<nav class="z-50 flex w-full justify-center">
+	<!-- <nav class="z-50 flex w-full justify-center">
 		<div
 			class="absolute top-10 z-50 flex w-fit justify-center gap-5 rounded-lg bg-light px-5 py-3 text-lg"
 		>
@@ -25,7 +25,7 @@
 				><img src="/icons/github_icon.svg" alt="GitHub Icon" /></a
 			>
 		</div>
-	</nav>
+	</nav> -->
 
 	<slot />
 </div>
